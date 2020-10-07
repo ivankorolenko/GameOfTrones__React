@@ -1,18 +1,29 @@
 import React, {Component} from 'react';
 import {Col, Row, Container, Button} from 'reactstrap';
+import GotService from '../../services/gotService';
+import ErrorMessage from '../errorMessage';
 import Header from '../header';
 import RandomChar from '../randomChar';
-import ItemList from '../itemList';
-import CharDetails from '../charDetails';
-
+import CharacterPage from '../pages/characterPage';
+import HousePage from '../pages/housePage';
+import BookPage from '../pages/bookPage'
 
 export default class App extends Component {
     constructor() {
         super();
 
+        this.gotService = new GotService();
+
         this.state = {
-            randomShown: true
+            randomShown: true,
+            error: false
         }
+    }
+
+    componentDidCatch() {
+        this.setState({
+            error: true
+        });
     }
 
     ToggleRandomChar = () => {
@@ -22,8 +33,12 @@ export default class App extends Component {
     }
 
     render() {
-        const {randomShown} = this.state,
+        const {randomShown, error} = this.state,
               randomChar = randomShown ? <RandomChar/> : null;
+        
+        if (error) {
+            return <ErrorMessage />
+        }
 
         return (
             <> 
@@ -41,14 +56,9 @@ export default class App extends Component {
                             </Button><br/><br/><br/>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col md='6'>
-                            <ItemList />
-                        </Col>
-                        <Col md='6'>
-                            <CharDetails />
-                        </Col>
-                    </Row>
+                    <CharacterPage />
+                    <HousePage />
+                    <BookPage />
                 </Container>
             </>
         );
