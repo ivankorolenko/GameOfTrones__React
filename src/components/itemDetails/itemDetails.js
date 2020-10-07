@@ -101,7 +101,7 @@ export default class ItemDetails extends Component {
 
     render() {
         if (!this.state.item) {
-            return <SelectError>Please select a character</SelectError>
+            return <SelectError>Please select a {this.props.category}</SelectError>
         }
 
         const {item} = this.state,
