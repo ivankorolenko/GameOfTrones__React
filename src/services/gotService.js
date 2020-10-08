@@ -34,7 +34,7 @@ export default class GotService {
     }
 
     getAllBooks = async () => {
-        const res = await this.getResource('/books');
+        const res = await this.getResource('/books?pageSize=12');
         return res.map(this._transformBook);
     }
 
