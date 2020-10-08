@@ -10,7 +10,8 @@ export default class CharacterPage extends Component {
     
     state = {
         selectedChar: null,
-        error: false
+        error: false,
+        page: 130
     }
 
     componentDidCatch() {
@@ -25,6 +26,22 @@ export default class CharacterPage extends Component {
         });
     }
 
+    nextPage = () => {
+        if (this.state.page < 214) {
+            this.setState({
+                page: this.state.page + 1
+            });
+        }
+    }
+
+    prevPage = () => {
+        if (this.state.page > 1) {
+            this.setState({
+                page: this.state.page - 1
+            });
+        }       
+    }
+
     render() {
         if (this.state.error) {
             return <ErrorMessage />
@@ -32,6 +49,7 @@ export default class CharacterPage extends Component {
 
         const itemList = (
             <ItemList 
+                page={this.state.page}
                 getData={this.gotService.getAllCharacters}
                 renderItem={({name, gender}) => `${name} (${gender})`}
                 onItemSelected={this.onItemSelected}/>
@@ -49,7 +67,11 @@ export default class CharacterPage extends Component {
         );
 
         return (
-            <RowBlock left={itemList} right={charDetails} />
+            <RowBlock 
+                nextPage={this.nextPage} 
+                prevPage={this.prevPage} 
+                left={itemList} 
+                right={charDetails} />
         )
     }
 }

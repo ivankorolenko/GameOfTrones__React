@@ -13,8 +13,8 @@ export default class GotService {
         return await res.json();
     }
 
-    getAllCharacters = async () => {
-        const res = await this.getResource('/characters?page=10');
+    getAllCharacters = async (page) => {
+        const res = await this.getResource(`/characters?page=${page}`);
         return res.map(this._transformCharacter);
     }
 
@@ -23,8 +23,8 @@ export default class GotService {
         return this._transformCharacter(character);
     }
 
-    getAllHouses = async () => {
-        const res = await this.getResource('/houses');
+    getAllHouses = async (page) => {
+        const res = await this.getResource(`/houses?page=${page}`);
         return res.map(this._transformHouse);
     }
 

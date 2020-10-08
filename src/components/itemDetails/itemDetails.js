@@ -21,6 +21,7 @@ const SelectError = styled.span`
 `;
 
 const AlignedSpan = styled.span`
+    text-align: right;
     float: right;
 `;
 
@@ -71,7 +72,7 @@ export default class ItemDetails extends Component {
         }
     }
 
-    updateItem() {
+    updateItem() { 
         const {category, itemId} = this.props;
 
         if (!itemId) {

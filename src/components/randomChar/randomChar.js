@@ -21,15 +21,20 @@ const RandomTerm = styled.span`
 
 export default class RandomChar extends Component {
     gotService = new GotService();
+    
     state = {
         char: {},
         loading: true,
         error: false
     }
 
+    static defaultProps = {
+        interval: 1500
+    }
+
     componentDidMount() {
         this.updateChar();
-        this.timerId = setInterval(this.updateChar, 1500);
+        this.timerId = setInterval(this.updateChar, this.props.interval);
     }
 
     componentWillUnmount() {

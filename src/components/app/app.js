@@ -37,7 +37,7 @@ export default class App extends Component {
 
     render() {
         const {randomShown, error} = this.state,
-              randomChar = randomShown ? <RandomChar/> : null;
+              randomChar = randomShown ? <RandomChar interval={1500} /> : null;
         
         if (error) {
             return <ErrorMessage />
