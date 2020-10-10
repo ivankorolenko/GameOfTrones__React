@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Spinner from '../spinner';
 
@@ -6,41 +6,27 @@ const Item = styled.li`
     cursor: pointer;
 `;
 
-export default class ItemList extends Component {
-    state = {
-        itemList: null
-    };
-
-    updateState() {
-        const {getData, page} = this.props;
-
+function ItemList({getData, page, renderItem, onItemSelected}) {
+    const [itemList, updateList] = useState(null);
+    
+    useEffect(() => {
         getData(page)
-            .then((itemList) => {
-                this.setState({
-                    itemList
-                });
+            .then((data) => {
+                updateList(data);
             });
-    }
+    }, [itemList]);
 
-    componentDidMount() {
-        this.updateState();
-    }
-
-    componentDidUpdate() {
-        this.updateState();
-    }
-
-    renderItems(arr) {
+    function renderItems(arr) {
         return arr.map((item) => {
             const {id} = item,
-                  label = this.props.renderItem(item);
+                  label = renderItem(item);
             
             return (
                 <Item 
                     key={id}     
                     className="list-group-item"
                     onClick={() => {
-                        this.props.onItemSelected(id);
+                        onItemSelected(id);
                     }}>
                     {label}
                 </Item>
@@ -48,22 +34,20 @@ export default class ItemList extends Component {
         });
     }
 
-    render() {
-        const {itemList} = this.state;
-
-        if (!itemList) {
-            return <Spinner/>
-        }
-
-        const items = this.renderItems(itemList);
-
-        return (
-            <>
-                <ul className="item-list list-group">
-                    {items}
-                </ul>
-                <br/>
-            </>
-        );
+    if (!itemList) {
+        return <Spinner/>
     }
+
+    const items = renderItems(itemList);
+
+    return (
+        <>
+            <ul className="item-list list-group">
+                {items}
+            </ul>
+            <br/>
+        </>
+    );
 }
+
+export default ItemList;
