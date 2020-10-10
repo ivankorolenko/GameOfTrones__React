@@ -14,7 +14,7 @@ function ItemList({getData, page, renderItem, onItemSelected}) {
             .then((data) => {
                 updateList(data);
             });
-    }, [itemList]);
+    }, [page]);
 
     function renderItems(arr) {
         return arr.map((item) => {
