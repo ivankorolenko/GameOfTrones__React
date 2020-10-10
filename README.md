@@ -6,9 +6,9 @@ You are welcome to see the builded version at [GitPages](https://ivankorolenko.g
 
 You also can clone this repository, install associated packages and run the application by the next commandes:
 
-#### `git clone https://github.com/ivankorolenko/GameOfTrones__React.git GameOfTrones__React`
-#### `cd GameOfTrones__React`
-#### `npm install`
-#### `npm start`
+#### `$ git clone https://github.com/ivankorolenko/GameOfTrones__React.git GameOfTrones__React`
+#### `$ cd GameOfTrones__React`
+#### `$ npm install`
+#### `$ npm start`
 
 In this case you previously should become sure that <b>npm</b> and <b>React</b> are installed on you computer
