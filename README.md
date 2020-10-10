@@ -1,5 +1,8 @@
 ## Small React App based on series of Ice And Fire
-
+<div style="display: flex; justify-content: space-between">
+<img src="./screenshots/screenshot-1.png" style="max-width: 45%">
+<img src="./screenshots/screenshot-2.png" style="max-width: 45%">
+</div>
 The application fetches info about characters, houses and books from [An API of Ice And Fire](https://www.anapioficeandfire.com/).
 
 You are welcome to see the builded version at [GitPages](https://ivankorolenko.github.io/GameOfTrones__React/).
