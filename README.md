@@ -6,6 +6,7 @@
 </div>
 
 <br />
+
 The application fetches info about characters, houses and books from [An API of Ice And Fire](https://www.anapioficeandfire.com/).
 
 You are welcome to see the builded version at [GitPages](https://ivankorolenko.github.io/GameOfTrones__React/).
