@@ -11,7 +11,13 @@ export default class HousePage extends Component {
     state = {
         selectedHouse: null,
         error: false,
-        page: 10
+        page: 10,
+        itemList: null
+    }
+
+    constructor(props) {
+        super(props)
+        this.updateAllHouses()
     }
 
     componentDidCatch() {
@@ -19,6 +25,17 @@ export default class HousePage extends Component {
             error: true
         });
     }
+
+    updateAllHouses() {
+        this.gotService.getAllHouses(this.state.page)
+            .then(itemList => {
+                this.setState({ itemList })
+            })
+            .catch(error => {
+                console.error(error)
+            });
+    }
+
 
     onItemSelected = (id) => {
         this.setState({
@@ -30,7 +47,7 @@ export default class HousePage extends Component {
         if (this.state.page < 45) {
             this.setState({
                 page: this.state.page + 1
-            });
+            }, this.updateAllHouses);
         }
     }
 
@@ -38,7 +55,7 @@ export default class HousePage extends Component {
         if (this.state.page > 1) {
             this.setState({
                 page: this.state.page - 1
-            });
+            }, this.updateAllHouses);
         }
     }
 
@@ -49,8 +66,7 @@ export default class HousePage extends Component {
 
         const itemList = (
             <ItemList 
-                page={this.state.page}
-                getData={this.gotService.getAllHouses}
+                itemList={this.state.itemList}
                 renderItem={({name}) => name}
                 onItemSelected={this.onItemSelected}/>
         );

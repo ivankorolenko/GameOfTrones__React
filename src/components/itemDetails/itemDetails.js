@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import styled from 'styled-components';
 import GotService from '../../services/gotService';
 
@@ -30,12 +30,12 @@ const Field = ({item, field, label}) => {
 
         const fieldList = item[field].map(value => {
             return (
-                <>
+                <Fragment key={value}>
                     <AlignedSpan>
                         {value}
                     </AlignedSpan>
                     <br/>
-                </>
+                </Fragment>
             )
         });
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Spinner from '../spinner';
 
@@ -6,16 +6,7 @@ const Item = styled.li`
     cursor: pointer;
 `;
 
-function ItemList({getData, page, renderItem, onItemSelected}) {
-    const [itemList, updateList] = useState(null);
-    
-    useEffect(() => {
-        getData(page)
-            .then((data) => {
-                updateList(data);
-            });
-    }, [page]);
-
+function ItemList({itemList, renderItem, onItemSelected}) {
     function renderItems(arr) {
         return arr.map((item) => {
             const {id} = item,
@@ -23,7 +14,7 @@ function ItemList({getData, page, renderItem, onItemSelected}) {
             
             return (
                 <Item 
-                    key={id}     
+                    key={id}
                     className="list-group-item"
                     onClick={() => {
                         onItemSelected(id);
