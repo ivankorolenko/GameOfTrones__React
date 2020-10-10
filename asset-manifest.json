@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/GameOfTrones__React/static/css/main.4fd1c523.chunk.css",
+    "main.js": "/GameOfTrones__React/static/js/main.841ef36b.chunk.js",
+    "main.js.map": "/GameOfTrones__React/static/js/main.841ef36b.chunk.js.map",
+    "runtime-main.js": "/GameOfTrones__React/static/js/runtime-main.b346b5f7.js",
+    "runtime-main.js.map": "/GameOfTrones__React/static/js/runtime-main.b346b5f7.js.map",
+    "static/css/2.8aa5a7f8.chunk.css": "/GameOfTrones__React/static/css/2.8aa5a7f8.chunk.css",
+    "static/js/2.27f1a6da.chunk.js": "/GameOfTrones__React/static/js/2.27f1a6da.chunk.js",
+    "static/js/2.27f1a6da.chunk.js.map": "/GameOfTrones__React/static/js/2.27f1a6da.chunk.js.map",
+    "index.html": "/GameOfTrones__React/index.html",
+    "precache-manifest.e2131e5cb6140a4b4e69244e767912eb.js": "/GameOfTrones__React/precache-manifest.e2131e5cb6140a4b4e69244e767912eb.js",
+    "service-worker.js": "/GameOfTrones__React/service-worker.js",
+    "static/css/2.8aa5a7f8.chunk.css.map": "/GameOfTrones__React/static/css/2.8aa5a7f8.chunk.css.map",
+    "static/css/main.4fd1c523.chunk.css.map": "/GameOfTrones__React/static/css/main.4fd1c523.chunk.css.map",
+    "static/js/2.27f1a6da.chunk.js.LICENSE.txt": "/GameOfTrones__React/static/js/2.27f1a6da.chunk.js.LICENSE.txt",
+    "static/media/error.jpg": "/GameOfTrones__React/static/media/error.c9fa41e6.jpg",
+    "static/media/app.css": "/GameOfTrones__React/static/media/got.50db5a81.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b346b5f7.js",
+    "static/css/2.8aa5a7f8.chunk.css",
+    "static/js/2.27f1a6da.chunk.js",
+    "static/css/main.4fd1c523.chunk.css",
+    "static/js/main.841ef36b.chunk.js"
+  ]
+}
