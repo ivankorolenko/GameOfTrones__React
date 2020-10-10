@@ -11,13 +11,29 @@ export default class CharacterPage extends Component {
     state = {
         selectedChar: null,
         error: false,
-        page: 130
+        page: 130,
+        itemList: null
+    }
+
+    constructor(props) {
+        super(props)
+        this.updateAllCharacters()
     }
 
     componentDidCatch() {
         this.setState({
             error: true
         });
+    }
+
+    updateAllCharacters() {
+        this.gotService.getAllCharacters(this.state.page)
+            .then(itemList => {
+                this.setState({ itemList })
+            })
+            .catch(error => {
+                console.error(error)
+            });
     }
 
     onItemSelected = (id) => {
@@ -30,7 +46,7 @@ export default class CharacterPage extends Component {
         if (this.state.page < 214) {
             this.setState({
                 page: this.state.page + 1
-            });
+            }, this.updateAllCharacters);
         }
     }
 
@@ -38,7 +54,7 @@ export default class CharacterPage extends Component {
         if (this.state.page > 1) {
             this.setState({
                 page: this.state.page - 1
-            });
+            }, this.updateAllCharacters);
         }       
     }
 
@@ -49,8 +65,7 @@ export default class CharacterPage extends Component {
 
         const itemList = (
             <ItemList 
-                page={this.state.page}
-                getData={this.gotService.getAllCharacters}
+                itemList={this.state.itemList}
                 renderItem={({name, gender}) => `${name} (${gender})`}
                 onItemSelected={this.onItemSelected}/>
         );

@@ -6,9 +6,15 @@ import {withRouter} from 'react-router-dom';
 
 class BookPage extends Component {
     gotService = new GotService();
-    
+
     state = {
-        error: false
+        error: false,
+        itemList: null
+    }
+
+    constructor(props) {
+        super(props)
+        this.updateAllBooks()
     }
 
     componentDidCatch() {
@@ -17,14 +23,24 @@ class BookPage extends Component {
         });
     }
 
+    updateAllBooks() {
+        this.gotService.getAllBooks()
+            .then(itemList => {
+                this.setState({ itemList })
+            })
+            .catch(error => {
+                console.error(error)
+            });
+    }
+
     render() {
         if (this.state.error) {
             return <ErrorMessage />
         }
 
         return (
-            <ItemList 
-                getData={this.gotService.getAllBooks}
+            <ItemList
+                itemList={this.state.itemList}
                 renderItem={({name}) => name}
                 onItemSelected={(itemId) => {
                     this.props.history.push(itemId);
