@@ -11,4 +11,4 @@ You also can clone this repository, install associated packages and run the appl
 #### `$ npm install`
 #### `$ npm start`
 
-In this case you previously should become sure that <b>npm</b> and <b>React</b> are installed on you computer
+In this case you previously should become sure that <b>npm</b> and <b>React</b> are installed on you computer.
