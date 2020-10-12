@@ -1,4 +1,4 @@
-## Small React App based on series of Ice And Fire
+## React App based on series of Ice And Fire
 
 <div>
     <img src="./screenshots/screenshot-1.png" />
